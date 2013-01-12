@@ -33,10 +33,7 @@
 */
 
 Route::controller('home');
-//Route::get('/', function()
-//{
-//	return View::make('home.index');
-//});
+Route::get('/', 'home@index');
 
 /*
 |--------------------------------------------------------------------------
