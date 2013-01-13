@@ -35,4 +35,19 @@ class Home_Controller extends Base_Controller {
 		return View::make('home.index');
 	}
 
+	public function action_browse()
+	{
+		return View::make('home.browse');
+	}
+
+	public function action_custom()
+	{
+		return View::make('home.custom');
+	}
+
+	public function action_testimonials()
+	{
+		return View::make('home.testimonials');
+	}
+
 }

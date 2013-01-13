@@ -1,5 +1,8 @@
 <?php
 
+use Laravel\Routing\Route as Route;
+use Laravel\Event as Event;
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes

@@ -1,59 +1,26 @@
-<!doctype html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title>Laravel: A Framework For Web Artisans</title>
-	<meta name="viewport" content="width=device-width">
-	{{ HTML::style('laravel/css/style.css') }}
-	{{ Asset::container('bootstrapper')->styles(); }}
-	{{ Asset::container('bootstrapper')->scripts(); }}
-</head>
-<body>
-	<div class="wrapper">
-		<header>
-			<h1>Laravel</h1>
-			<h2>A Framework For Web Artisans</h2>
+@layout('shared.sitebase')
 
-			<p class="intro-text" style="margin-top: 45px;">
-			</p>
-		</header>
-		<div role="main" class="main">
-			<div class="home">
-				<h2>Learn the terrain.</h2>
+@section('header-title')
+Lochsley's Knit Hats
+@endsection
 
-				<p>
-					You've landed yourself on our default home page. The route that
-					is generating this page lives at:
-				</p>
+@section('header-subtitle')
+Warm, comfortable hats to keep you warm on those cold Provo nights
+@endsection
 
-				<pre>{{ path('app') }}routes.php</pre>
+@section('content')
+<p>My name is Lochsley (Yes, it is of Robin Hood origin), and I love making knit hats! Knitting for me is a great 
+    stress reliever. My life has been pretty stressful lately, which means I have made a lot of hats. This
+    is good news for you, though, because it means you can now purchase my hats!</p>
 
-				<p>And the view sitting before you can be found at:</p>
+<p>Each hat is lovingly hand-crafted on a knitting loom. It takes me about 1.5 hours, or 4 episodes of 
+    Parks and Recreation (The best show on earth) to make a hat. I have lots of fun doing them. </p>
 
-				<pre>{{ path('app') }}views/home/index.blade.php</pre>
+<p> I have many hats already made. Feel free to {{ HTML::link_to_action('home@browse','browse my hats') }}. If you find one (or 7)
+    that you like, then buy them from me! </p>                
 
-				<h2>Grow in knowledge.</h2>
+<p> I take a limited number of custom orders too! Check out our {{ HTML::link_to_action('home@custom','hat designer') }}. 
+    Pick one of my cool designs, customize you colors, and I'll make it just for you!</p>
 
-				<p>
-					Learning to use Laravel is amazingly simple thanks to
-					its {{ HTML::link('docs', 'wonderful documentation') }}.
-				</p>
-
-				<h2>Create something beautiful.</h2>
-
-				<p>
-					Now that you're up and running, it's time to start creating!
-					Here are some links to help you get started:
-				</p>
-
-				<ul class="out-links">
-					<li><a href="http://laravel.com">Official Website</a></li>
-					<li><a href="http://forums.laravel.com">Laravel Forums</a></li>
-					<li><a href="http://github.com/laravel/laravel">GitHub Repository</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
-</body>
-</html>
+<p> You can knit too! It's easy and fun. Find out more {{ HTML::link('#','here') }}.</p>
+@endsection
