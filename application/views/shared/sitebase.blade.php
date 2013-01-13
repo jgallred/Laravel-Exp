@@ -11,8 +11,15 @@ use Laravel\URL as URL;
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>Lochsley's Knit Hats</title>
         <meta name="viewport" content="width=device-width">
+        
+        {{ HTML::style('css/base.css'); }}
         {{ Asset::container('bootstrapper')->styles(); }}
-        {{ Asset::container('bootstrapper')->scripts(); }}
+        
+        <!-- Cascade controller and action specific stylesheets -->
+        {{ Asset::styles(); }}
+        
+        <!-- Head scripts -->
+        {{ Asset::container('header')->scripts(); }}
         <style>
             .wrapper  {
                 padding: 10px 20px;
@@ -45,6 +52,7 @@ use Laravel\URL as URL;
                 );
         ?>
         @yield_section
+        
         <div class="wrapper">
             <header>              
                 <h1>@yield('header-title')</h1>
@@ -54,5 +62,11 @@ use Laravel\URL as URL;
                 @yield('content')
             </div>
         </div>
+        
+        <!-- Twitter Bootstrap scripts -->
+        {{ Asset::container('bootstrapper')->scripts(); }}
+        
+        <!-- Footer scripts -->
+        {{ Asset::container('footer')->scripts(); }}
     </body>
 </html>

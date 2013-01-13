@@ -29,8 +29,14 @@ class Home_Controller extends Base_Controller {
 	|		}
 	|
 	*/
+    
+   public function __construct() {
+       parent::__construct();       
+       // Add CSS for all actions in the controller
+       Asset::add('controller-css', 'css/home.css');
+   }
 
-	public function action_index()
+   public function action_index()
 	{
 		return View::make('home.index');
 	}
@@ -46,7 +52,9 @@ class Home_Controller extends Base_Controller {
 	}
 
 	public function action_testimonials()
-	{
+	{       
+        // Add action specific CSS
+        Asset::add('page-css', 'css/home/testimonials.css');
 		return View::make('home.testimonials');
 	}
 

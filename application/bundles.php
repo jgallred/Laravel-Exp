@@ -36,6 +36,7 @@
 return array(
 
 	'docs' => array('handles' => 'docs'),
-	'bootstrapper' => array('auto' => true),
+	'bootstrapper' => array('auto' => true), 
+    'lessismore' => array('auto' => true),
 
 );
