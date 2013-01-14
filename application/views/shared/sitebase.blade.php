@@ -1,9 +1,3 @@
-<?php
-
-use Bootstrapper\Navbar as Navbar;
-use Bootstrapper\Navigation as Navigation;
-use Laravel\URL as URL;
-?>
 <!doctype html>
 <html lang="en">
     <head>
@@ -20,15 +14,13 @@ use Laravel\URL as URL;
         
         <!-- Head scripts -->
         {{ Asset::container('header')->scripts(); }}
-        <style>
-            .wrapper  {
-                padding: 10px 20px;
-            }
-        </style>
     </head>
     <body>
         @section('navigation_bar')
         <?php
+        $userMenu = array(array('My Cart', '#'));
+        $userMenu[] = Auth::check() ? array('Sign Out', URL::to("logout")) : array('Sign In', URL::to("login"));
+
         echo Navbar::create(array(), Navbar::FIX_TOP)
                 ->with_brand('Lochsley\'s Knit Hats', URL::base())
                 ->with_menus(
@@ -42,12 +34,7 @@ use Laravel\URL as URL;
                     )
                 )
                 ->with_menus(
-                    Navigation::links(
-                            array(
-                                array('My Cart', '#'),
-                                array('Sign In', '#'),
-                            )
-                    ), 
+                    Navigation::links($userMenu),
                     array('class' => 'pull-right')
                 );
         ?>
