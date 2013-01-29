@@ -20,19 +20,26 @@
         <?php
         $userMenu = array(array('My Cart', '#'));
         $userMenu[] = Auth::check() ? array('Sign Out', URL::to("logout")) : array('Sign In', URL::to("login"));
+        
+        $pages = array(
+            array('Home', URL::to_action("home@index")),
+            array('Hats', URL::to_action("home@browse")),
+            array('Design', URL::to_action("home@custom")),
+            array('Testimonials', URL::to_action("home@testimonials")),
+        );
+        
+        if(true) {//TODO If Admin, then enable
+            $pages = array_merge($pages, array(
+                array(Navigation::VERTICAL_DIVIDER),
+                array('Products', URL::to_action("admin.products@index")),
+                array('Orders', URL::to_action("admin@orders")),
+                array('Stats', URL::to_action("admin@stats")),
+            ));
+        }
 
         echo Navbar::create(array(), Navbar::FIX_TOP)
                 ->with_brand('Lochsley\'s Knit Hats', URL::base())
-                ->with_menus(
-                    Navigation::links(
-                        array(
-                            array('Home', URL::to_action("home@index")),
-                            array('Hats', URL::to_action("home@browse")),
-                            array('Design', URL::to_action("home@custom")),
-                            array('Testimonials', URL::to_action("home@testimonials")),
-                        )
-                    )
-                )
+                ->with_menus(Navigation::links($pages))
                 ->with_menus(
                     Navigation::links($userMenu),
                     array('class' => 'pull-right')

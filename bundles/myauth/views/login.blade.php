@@ -13,3 +13,4 @@
     <p>{{ Form::submit('Login') }}</p>
 {{ Form::close() }}
 
+Don't have an account? {{ HTML::link(Config::get('myauth::config.signup_route'), "Register one") }}

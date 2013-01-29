@@ -39,5 +39,6 @@ return array(
 	'bootstrapper' => array('auto' => true), 
     'lessismore' => array('auto' => true),
     'myauth' => array('auto' => true),
+    'bob',
 
 );

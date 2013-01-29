@@ -38,6 +38,9 @@ use Laravel\Event as Event;
 Route::controller('home');
 Route::get('/', 'home@index');
 
+Route::controller('admin.products');
+Route::controller('admin');
+
 /*
 |--------------------------------------------------------------------------
 | Application 404 & 500 Error Handlers
@@ -110,3 +113,9 @@ Route::filter('auth', function()
 {
 	if (Auth::guest()) return Redirect::to('login');
 });
+
+// Route for Admin_Controller
+Route::controller('admin');
+
+// Route for Admin_Products_Controller
+Route::controller('admin.products');
